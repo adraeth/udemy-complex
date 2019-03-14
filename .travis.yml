@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t jmirecki/udemy-complex-client-test -f ./client/Dockerfile.dev ./client
+  - docker build --build-arg node_version=11.10.1-alpine -t jmirecki/udemy-complex-client-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run jmirecki/udemy-complex-client-test npm test -- --coverage

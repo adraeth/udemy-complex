@@ -1,4 +1,5 @@
-FROM node:alpine
+ARG node_version=alpine
+FROM node:${node_version}
 WORKDIR '/app'
 COPY ./package.json ./
 RUN npm install
