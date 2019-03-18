@@ -16,7 +16,7 @@ export default class Fib extends Component {
 
     async fetchValues() {
         const values = await axios.get('/api/values/current');
-        if (values && values.data) {
+        if (values && values.data && typeof values.data !== "string") {
             this.setState({
                 values: values.data
             });
@@ -25,7 +25,7 @@ export default class Fib extends Component {
 
     async fetchIndexes() {
         const seenIndexes = await axios.get('/api/values/all');
-        if (seenIndexes && seenIndexes.data) {
+        if (seenIndexes && seenIndexes.data && typeof seenIndexes.data !== "string") {
             this.setState({
                 seenIndexes: seenIndexes.data
             });
